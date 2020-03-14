@@ -1,0 +1,18 @@
+
+运行环境:
+	python2.7.x
+依赖库：
+	1.安装网页解析库
+	pip install bs4
+	2.安装xlxs解析库
+	pip install xlrd
+
+
+使用说明：将excel文件拖到run.bat里即可运行
+	附件下载爬虫说明
+	1.默认认为excel文件中每张子表的每一行中有一个编号+一个url
+	2.按sheet子表名/编号/的结构，下载附件
+	3.程序执行完毕，若有下载失败的文件或url，会输出到failed_时间.log里
+
+
+
