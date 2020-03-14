@@ -77,10 +77,10 @@ class AttachmentCrawler(object):
 	def parser_url_and_download_attachment(self):
 		html = urllib2.urlopen(self.raw_url)
 		bsObj = BeautifulSoup(html, 'html.parser')
-		hyperlink_tags = bsObj.find_all('a')  # 找到所有超链接tags
+		hyperlink_tags = bsObj.find_all('a')  # 找到所有超链接tags, 超链接都是<a href=xxx>开始
 		failed_files, success_files = [], []
 		for tag in hyperlink_tags:
-			name = tag.text.lstrip().rstrip()
+			name = tag.text.lstrip().rstrip()  # .text比.string要好,.text得到的是实际展示的内容(可能多个标签合并)，.string则只有在单标签时生效
 			href = tag.get('href')
 			if not href or not name:
 				continue
